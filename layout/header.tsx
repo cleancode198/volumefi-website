@@ -62,7 +62,10 @@ const LayoutHeader = ({ router }) => {
   const [eventMobileSubMenuOpen, setEventMobileSubMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (router.route.startsWith("/event")) {
+    if (router.route === "/") {
+      router.replace("/event");
+      setCurLink("/event");
+    } else if (router.route.startsWith("/event")) {
       setEventMobileSubMenuOpen(true);
     }
   }, [router.route]);
